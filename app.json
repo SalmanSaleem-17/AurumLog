@@ -6,24 +6,44 @@
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
-    "newArchEnabled": true,
-    "splash": {
-      "image": "./assets/splash-icon.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+    "androidStatusBar": {
+      "backgroundColor": "#F59E0B",
+      "barStyle": "light-content",
+      "translucent": false
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "statusBarStyle": "light"
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
+        "foregroundImage": "./assets/icon.png",
+        "backgroundColor": "#F59E0B"
       },
-      "edgeToEdgeEnabled": true
+      "navigationBar": {
+        "backgroundColor": "#F59E0B"
+      },
+      "softwareKeyboardLayoutMode": "pan",
+      "edgeToEdgeEnabled": false,
+      "permissions": [
+        "android.permission.BLUETOOTH",
+        "android.permission.BLUETOOTH_ADMIN",
+        "android.permission.BLUETOOTH_CONNECT",
+        "android.permission.BLUETOOTH_SCAN",
+        "android.permission.ACCESS_FINE_LOCATION",
+        "android.permission.ACCESS_COARSE_LOCATION"
+      ],
+      "buildProperties": [
+        "android.buildTypes.release.ndk.debugSymbolLevel=SYMBOL_TABLE",
+        "android.allowInsecureProtocols=true"
+      ]
     },
     "web": {
-      "favicon": "./assets/favicon.png"
-    }
+      "favicon": "./assets/icon.png",
+      "backgroundColor": "#F59E0B"
+    },
+    "plugins": [
+      "expo-build-properties"
+    ]
   }
 }

@@ -1,0 +1,106 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    ext {
+        // Define versions here for consistent management
+        kotlinVersion = "1.9.22"
+        ndkVersion = "25.2.9519653"
+        compileSdkVersion = 34
+        targetSdkVersion = 34
+        minSdkVersion = 24
+        buildToolsVersion = "34.0.0"
+    }
+    
+    repositories {
+        google()
+        mavenCentral()
+    }
+    
+    dependencies {
+        classpath 'com.android.tools.build:gradle:7.4.2'
+        classpath 'com.facebook.react:react-native-gradle-plugin'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+        maven { url 'https://jitpack.io' }
+        
+        // React Native from npm
+        maven {
+            url "$rootDir/../node_modules/react-native/android"
+        }
+        
+        // Expo modules
+        maven {
+            url "$rootDir/../node_modules/expo-camera/android/maven"
+        }
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+
+// buildscript {
+//     ext {
+//         kotlinVersion = "1.9.22"
+//         ndkVersion = "25.2.9519653"
+//     }
+//     repositories {
+//         google()
+//         mavenCentral()
+//     }
+//     dependencies {
+//         classpath 'com.android.tools.build:gradle:7.4.2'
+//     }
+// }
+
+// allprojects {
+//     repositories {
+//         google()
+//         mavenCentral()
+//         maven { url 'https://jitpack.io' }
+//     }
+// }
+
+// buildscript {
+//   repositories {
+//     google()
+//     mavenCentral()
+//   }
+//   dependencies {
+//     classpath('com.android.tools.build:gradle')
+//     classpath('com.facebook.react:react-native-gradle-plugin')
+//     classpath('org.jetbrains.kotlin:kotlin-gradle-plugin')
+//   }
+// }
+
+// def reactNativeAndroidDir = new File(
+//   providers.exec {
+//     workingDir(rootDir)
+//     commandLine("node", "--print", "require.resolve('react-native/package.json')")
+//   }.standardOutput.asText.get().trim(),
+//   "../android"
+// )
+
+// allprojects {
+//   repositories {
+//     maven {
+//       // All of React Native (JS, Obj-C sources, Android binaries) is installed from npm
+//       url(reactNativeAndroidDir)
+//     }
+
+//     google()
+//     mavenCentral()
+//     maven { url 'https://www.jitpack.io' }
+//   }
+// }
+
+// apply plugin: "expo-root-project"
+// apply plugin: "com.facebook.react.rootproject"
